@@ -1,0 +1,99 @@
+###############################################
+#
+# Outdoor
+# lights:
+#    - Plantane (sonoff-S20)
+#    - entity_id: light.plantane
+#
+###############################################
+
+# ------------------------------------------------
+# 1. switch ON in the morning (when dark outside)
+# ------------------------------------------------
+- alias: 'Plantane light ON early morning'
+  trigger:
+
+    # trigger on time
+    - platform: time
+      at: '06:00:00'
+
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: "00:00:00"
+
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/outdoor/switch1/POWER"
+        payload: "ON"
+
+
+
+
+# ------------------------------------------------
+# 2. switch ON when sunset
+# ------------------------------------------------
+- alias: 'Plantane light ON when sunset'
+  trigger:
+
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/outdoor/switch1/POWER"
+        payload: "ON"
+
+
+# ------------------------------------------------
+# 3. switch OFF when sunrise
+# ------------------------------------------------
+- alias: 'Plantane light OFF when sunrise'
+  trigger:
+
+    # trigger: switch off just before sunrise
+    - platform: sun
+      event: sunrise
+      offset: '-00:15:00'
+
+  action:    
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/outdoor/switch1/POWER"
+        payload: "OFF"
+
+
+# ------------------------------------------------
+# 4. switch OFF during the night
+# ------------------------------------------------
+- alias: 'Plantane light OFF during night'
+  trigger:
+
+    # trigger every 30 minutes
+    - platform: time
+      at: '00:00:00'
+
+
+  action:    
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/outdoor/switch1/POWER"
+        payload: "OFF"
+
+
+
+
+

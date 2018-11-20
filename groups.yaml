@@ -1,0 +1,426 @@
+#################################################
+#
+#  GROUP Definitions
+#
+#################################################
+
+# ===============================================================
+#
+# GROUP PEOPLE
+#
+# ===============================================================
+
+# -------------------------------
+# Family Parents
+# -------------------------------
+family_parents:
+  name: 'Parents'
+  entities:
+    - device_tracker.jurgens7
+    - device_tracker.petraa3
+
+# -------------------------------
+# Family Kids
+# -------------------------------
+family_kids:
+  name: 'Kids'
+  entities:
+    - device_tracker.iphonevncorinna
+    - device_tracker.judithsiphone
+    - device_tracker.adrians7
+
+# -------------------------------
+# Family memebers
+# -------------------------------
+family:
+  name: 'Family'
+  entities:
+    - device_tracker.jurgens7
+    - device_tracker.petraa3
+    - device_tracker.iphonevncorinna
+    - device_tracker.judithsiphone
+    - device_tracker.adrians7
+
+# friends:
+#   name: 'Friends'
+#   entities:
+#     - device_tracker.iphonevusdohmen
+
+
+
+# ===============================================================
+#
+# GROUP LIGHTS
+#
+# ===============================================================
+
+# -------------------------------
+# Lights: at home
+# -------------------------------
+lights_home:
+  name: 'Lights Home'
+  entities:
+    - switch.oeq0712614
+    - light.tv_light
+    - light.plantane
+
+# -------------------------------
+# Lights: living room
+# -------------------------------
+lights_living:
+  name: 'Lights'
+  entities:
+    - switch.oeq0712614
+    - light.tv_light
+
+# -------------------------------
+# Lights: outdoor
+# -------------------------------
+lights_outdoor:
+  name: 'Outdoor Lights'
+  entities:
+    - light.plantane
+
+
+
+# ===============================================================
+#
+# GROUP SENSORS
+#
+# ===============================================================
+
+# -------------------------------
+# Sensors: Heating
+# -------------------------------
+sensor_heating:
+  name: 'Heating'
+  entities:
+    - sensor.heizung_vl
+    - sensor.heizung_rl
+    - sensor.heizung_ww
+
+
+# -------------------------------
+# Sensors: Living Room
+# -------------------------------
+sensor_room_wz:
+  name: 'Living room sensors'
+  entities:
+    - sensor.wz_temperature
+    - sensor.wz_humidity
+    - sensor.wz_pressure
+
+
+# -------------------------------
+# Sensors: Kids1 Room
+# -------------------------------
+sensor_room_kids1:
+  name: 'Kids1 room sensors'
+  entities:
+    - sensor.kids1_temperature
+    - sensor.kids1_pressure
+
+# -------------------------------
+# Sensors: Kids2 Room
+# -------------------------------
+sensor_room_kids2:
+  name: 'Kids2 room sensors'
+  entities:
+    - sensor.kids2_temperature
+    - sensor.kids2_pressure
+
+# -------------------------------
+# Sensors: Kids3 Room
+# -------------------------------
+sensor_room_kids3:
+  name: 'Kids3 room sensors'
+  entities:
+    - sensor.kids3_temperature
+    - sensor.kids3_pressure
+
+
+
+# -------------------------------
+# Sensors: Outdoor
+# -------------------------------
+sensor_outdoor:
+  name: 'Outdoor sensors'
+  entities:
+    - sensor.local_temperature
+    - sensor.local_humidity
+    - sensor.local_pressure
+
+
+
+
+# ===============================================================
+#
+# GROUP ROOMS
+#
+# ===============================================================
+
+# -------------------------------
+# Room:  living room
+# -------------------------------
+room_wz:
+  name: 'Living room'
+  entities:
+    - light.tv_light
+    - switch.oeq0712614    
+    - sensor.wz_temperature
+    - sensor.wz_humidity
+    - sensor.wz_pressure
+
+
+# -------------------------------
+# Sensors: Kids1 Room
+# -------------------------------
+room_kids1:
+  name: 'Kids1 room'
+  entities:
+    - device_tracker.judithsiphone
+    - sensor.kids1_temperature
+    - sensor.kids1_pressure
+
+
+# -------------------------------
+# Sensors: Kids2 Room
+# -------------------------------
+room_kids2:
+  name: 'Kids2 room'
+  entities:
+    - device_tracker.adrians7
+    - sensor.kids2_temperature
+    - sensor.kids2_pressure
+
+
+# -------------------------------
+# Sensors: Kids3 Room
+# -------------------------------
+room_kids3:
+  name: 'Kids3 room'
+  entities:
+    - device_tracker.iphonevncorinna
+    - sensor.kids3_temperature
+    - sensor.kids3_pressure
+
+
+
+
+
+# ===============================================================
+#
+# GROUP Weather & Outdoor
+#
+# ===============================================================
+
+# -------------------------------
+# Local Weather from Outdoor
+# -------------------------------
+outdoor:
+  name: 'Outdoor'
+  entities:
+    - light.plantane
+    - sensor.local_temperature
+    - sensor.local_humidity
+    - sensor.local_pressure
+
+
+# -------------------------------
+# Weather from DarkSky
+# -------------------------------
+meteo:
+  name: 'Meteo'
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_precip_intensity
+
+    # - sensor.dark_sky_ozone
+    # - sensor.dark_sky_storm_distance
+    # - sensor.dark_sky_storm_bearing
+    # - sensor.dark_sky_wind_bearing
+    # - sensor.dark_sky_hourly_summary
+    # - sensor.dark_sky_precip_intensity_max
+    # - sensor.dark_sky_visibility
+
+
+
+# -------------------------------
+# Sun
+# -------------------------------
+weather_sun:
+  name: 'Sun Data'
+  entities:
+    - sensor.yr_symbol
+    - sun.sun
+    - sensor.sun_elevation
+    - sensor.nextsunrise
+    - sensor.nextsunset
+
+
+
+
+
+
+# ===============================================================
+#
+# GROUP HOST
+#
+# ===============================================================
+pi2:
+  name: 'Raspberry2'
+  entities:
+    # - sensor.cpu_temperature
+    # - sensor.cpu_use
+    # - sensor.disk_used_
+    # - sensor.last_boot
+    # - sensor.ram_free
+    # - sensor.sent_eth0
+    # - sensor.received_eth0
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+
+
+
+# ===============================================================
+#
+# GROUP AUTOMATION
+#
+# ===============================================================
+
+# -------------------------------
+# Floor light
+# -------------------------------
+auto_light_floor:
+  name: 'Floor Light' 
+  entities:
+    - automation.floor_light_on_early_morning
+    - automation.floor_light_on_when_sunset
+    - automation.floor_light_off_when_sunrise
+    - automation.floor_light_off_during_night
+
+
+# -------------------------------
+# TV light
+# -------------------------------
+auto_light_tv:
+  name: 'TV Light' 
+  entities:
+    - automation.tv_light_on_early_morning
+    - automation.tv_light_on_when_sunset
+    - automation.tv_light_off_when_sunrise
+    - automation.tv_light_off_during_night
+
+
+# -------------------------------
+# Plantane light
+# -------------------------------
+auto_light_plantane:
+  name: 'Plantane Light' 
+  entities:
+    - automation.plantane_light_on_early_morning
+    - automation.plantane_light_on_when_sunset
+    - automation.plantane_light_off_when_sunrise
+    - automation.plantane_light_off_during_night
+
+
+
+
+# ***********************************************************************
+# 
+#  --------------  TAB definition below --------------------------------- 
+#
+# ***********************************************************************
+
+
+#################################################
+#
+# Tabs
+#
+#################################################
+default_view:
+  name: 'Home'
+  view: yes
+  icon: mdi:home 
+  entities:
+    - group.family
+    - group.room_wz
+    - group.outdoor
+   
+
+People: 
+  name: People
+  view: yes
+  icon: mdi:account-multiple
+  entities:
+    - group.family_kids
+    - group.family_parents
+    # - group.friends
+
+Kids:
+  name: Kids
+  view: yes
+  entities:
+    - group.room_kids1
+    - group.room_kids3
+    - group.room_kids2
+    
+
+Weather:
+  name: Weather
+  view: yes
+  entities:
+    - group.meteo 
+    - group.weather_sun
+    - group.sensor_outdoor
+
+
+
+Heating:
+  name: Heating
+  view: yes
+  entities:
+    - group.sensor_heating
+    
+
+Outdoor: 
+  name: Outdoor
+  view: yes
+  entities:
+    - group.outdoor
+
+
+Media: 
+  name: Media
+  view: yes
+  entities:
+    - device_tracker.epson69ae8f
+    - device_tracker.firetvkindle1087de6fa
+
+
+automation:
+  name: Automation
+  view: yes
+  entities:
+    - group.auto_light_floor
+    - group.auto_light_tv
+    - group.auto_light_plantane
+
+
+system:
+  name: 'System'
+  view: yes
+  icon: mdi:server
+  entities:
+    - group.pi2
+    # - group.pihole
+    # - group.devices
+    # - group.pings
+    # - group.docker_container
+

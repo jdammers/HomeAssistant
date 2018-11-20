@@ -1,0 +1,112 @@
+#####################
+# device tracker
+#####################
+device_tracker.jurgens7:
+  entity_picture: /local/jurgen.jpg
+  friendly_name: Jurgen
+
+device_tracker.petraa3:
+  entity_picture: /local/petra.jpg
+  friendly_name: Petra
+
+device_tracker.iphonevncorinna:
+  entity_picture: /local/corinna.jpg
+  friendly_name: Corinna
+
+device_tracker.judithsiphone:
+  entity_picture: /local/judith.jpg
+  friendly_name: Judith
+
+device_tracker.adrians7:
+  entity_picture: /local/adrian.jpg
+  friendly_name: Adrian
+
+device_tracker.epson69ae8f:
+  icon: mdi:printer
+  friendly_name: Epson
+
+device_tracker.firetvkindle1087de6fa:
+  icon: mdi:television
+  friendly_name: Fire-TV
+
+
+#####################
+# Group People
+#####################
+group.jurgen:
+  entity_picture: /local/jurgen.jpg
+  friendly_name: Jurgen
+
+group.petra:
+  entity_picture: /local/petra.jpg
+  friendly_name: Petra
+
+group.corinna:
+  entity_picture: /local/corinna.jpg
+  friendly_name: Corinna
+
+group.judith:
+  entity_picture: /local/judith.jpg
+  friendly_name: Judith
+
+group.adrian:
+  entity_picture: /local/adrian.jpg
+  friendly_name: Adrian
+
+
+
+#####################
+# Switches
+#####################
+switch.oeq0712614:
+  icon: mdi:lightbulb
+  friendly_name: Floor light
+
+light.tv_light:
+  friendly_name: TV light
+  icon: mdi:lightbulb 
+  assumed_state: false
+
+light.plantane:
+  friendly_name: Plantane
+  icon: mdi:lightbulb 
+  assumed_state: false
+
+
+
+
+#####################
+# Sensors
+#####################
+# Speedtest
+sensor.speedtest_download:
+  friendly_name: Download Rate
+sensor.speedtest_ping:
+  friendly_name: Last Ping
+sensor.speedtest_upload:
+  icon: mdi:speedometer
+  friendly_name: Upload Rate
+
+# Heating
+sensor.heizung_vl:
+  friendly_name: Heizung VL
+sensor.heizung_rl:
+  friendly_name: Heizung RL
+sensor.heizung_ww:
+  friendly_name: Heizung WW
+
+# Room-WZ
+sensor.wz_temperature:
+  friendly_name: WZ Temperature
+sensor.wz_humidity:
+    friendly_name: WZ Humidity
+sensor.wz_pressure:
+    friendly_name: WZ Pressure
+
+# Outdoor
+sensor.weather_temperature:
+  friendly_name: Temperature
+sensor.weather_humidity:
+    friendly_name: Humidity
+sensor.weather_pressure:
+    friendly_name: Barometric Pressure

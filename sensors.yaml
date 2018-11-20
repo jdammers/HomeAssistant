@@ -1,0 +1,293 @@
+#==================================
+# Date and Time
+#==================================
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+
+
+#==================================
+# SUN sensor template
+#==================================
+- platform: template
+  sensors:
+    nextsunrise:
+      friendly_name: 'Next Sunrise'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%I:%M %P") }}'
+      
+- platform: template
+  sensors:
+    nextsunset:
+      friendly_name: 'Next Sunset'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%I:%M %P") }}'
+      
+- platform: template
+  sensors:
+    sun_elevation:
+      friendly_name: 'Elevation'
+      value_template: '{{states.sun.sun.attributes.elevation}}°C'
+
+
+
+#==================================
+# DarkSky sensor 
+#==================================
+- platform: darksky
+  api_key: !secret darksky_api
+  update_interval: '00:15:00'
+  forecast:
+    - 1
+    - 2
+    - 3
+  monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - temperature_high
+    - temperature_low
+    - wind_speed
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - uv_index
+    - hourly_summary
+    - daily_summary
+
+
+
+
+ 
+
+#==================================
+# clouds and rain
+#==================================
+- platform: yr
+
+
+
+#==================================
+# speedtest
+#==================================
+- platform: speedtest
+  minute: 
+    - 15
+  hour:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 20
+    - 23
+  monitored_conditions:
+    - download
+    - upload
+    - ping
+
+
+
+
+
+###################################
+#
+# ESPEasy sensors 
+#
+###################################
+
+#==================================
+# Room-WZ
+#==================================
+- platform: mqtt
+  name: "WZ Temperature"
+  state_topic: "/WZ/BME280/Temperature"
+  qos: 0
+  unit_of_measurement: '°C'
+  device_class: temperature
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "WZ Humidity"
+  state_topic: "/WZ/BME280/Humidity"
+  qos: 0
+  unit_of_measurement: '%'
+  device_class: Humidity
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Wz Pressure"
+  state_topic: "/WZ/BME280/Pressure"
+  qos: 0
+  unit_of_measurement: 'hPa'
+  value_template: "{{ value }}"
+  # scan_interval: 30
+  # force_update: true
+
+
+
+#==================================
+# Room-Kids1
+#==================================
+- platform: mqtt
+  name: "Kids1 Temperature"
+  state_topic: "/Kids1/BMP280/Temperature"
+  qos: 0
+  unit_of_measurement: '°C'
+  device_class: temperature
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Kids1 Pressure"
+  state_topic: "/Kids1/BMP280/Pressure"
+  qos: 0
+  unit_of_measurement: 'hPa'
+  value_template: "{{ value }}"
+
+
+#==================================
+# Room-Kids2
+#==================================
+- platform: mqtt
+  name: "Kids2 Temperature"
+  state_topic: "/Kids2/BMP280/Temperature"
+  qos: 0
+  unit_of_measurement: '°C'
+  device_class: temperature
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Kids2 Pressure"
+  state_topic: "/Kids2/BMP280/Pressure"
+  qos: 0
+  unit_of_measurement: 'hPa'
+  value_template: "{{ value }}"
+
+
+#==================================
+# Room-Kids3
+#==================================
+- platform: mqtt
+  name: "Kids3 Temperature"
+  state_topic: "/Kids3/BMP280/Temperature"
+  qos: 0
+  unit_of_measurement: '°C'
+  device_class: temperature
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Kids3 Pressure"
+  state_topic: "/Kids3/BMP280/Pressure"
+  qos: 0
+  unit_of_measurement: 'hPa'
+  value_template: "{{ value }}"
+
+
+
+#==================================
+# Outdoor Local Weather Station
+#==================================
+- platform: mqtt
+  name: "Local Temperature"
+  state_topic: "/Outdoor/BME280/Temperature"
+  qos: 0
+  unit_of_measurement: '°C'
+  device_class: temperature
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Local Humidity"
+  state_topic: "/Outdoor/BME280/Humidity"
+  qos: 0
+  unit_of_measurement: '%'
+  device_class: Humidity
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Local Pressure"
+  state_topic: "/Outdoor/BME280/Pressure"
+  qos: 0
+  unit_of_measurement: 'hPa'
+  value_template: "{{ value }}"
+
+
+
+#==================================
+# Heizung
+#==================================
+- platform: mqtt
+  name: "Heizung VL"
+  state_topic: "/heizung/Heizung-VL/Temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Heizung RL"
+  state_topic: "/heizung/Heizung-RL/Temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+  value_template: "{{ value }}"
+
+- platform: mqtt
+  name: "Heizung WW"
+  state_topic: "/heizung/Heizung-WW/Temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+  value_template: "{{ value }}"
+  # scan_interval: 30
+  # force_update: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###################################
+# Epson ink level
+# uses libxml2-utils
+###################################
+# - platform: command_line
+#   name: Epson Ink Level Black
+#   command: /usr/bin/curl -sL http://epson69ae8f/PRESENTATION/HTML/TOP/PRTINFO.HTML | awk -F"'" '/Ink_K.PNG/ && $6+0 == $6 { printf "%.0f\n", $6 / 50 * 100 }'
+#   unit_of_measurement: '%'
+#   scan_interval: 120
+
+# - platform: command_line
+#   name: Epson Ink Level Magenta
+#   command: /usr/bin/curl -s -X GET http://epson.cbs-service.net/PRESENTATION/HTML/TOP/PRTINFO.HTML  | awk -F"'" '/Ink_M.PNG/ && $6+0 == $6 { printf "%.0f\n", $6 / 50 * 100 }'
+#   unit_of_measurement: '%'
+#   scan_interval: 120
+
+# - platform: command_line
+#   name: Epson Ink Level Yellow
+#   command: /usr/bin/curl -s -X GET http://epson.cbs-service.net/PRESENTATION/HTML/TOP/PRTINFO.HTML  | awk -F"'" '/Ink_Y.PNG/ && $6+0 == $6 { printf "%.0f\n", $6 / 50 * 100 }'
+#   unit_of_measurement: '%'
+#   scan_interval: 120
+
+# - platform: command_line
+#   name: Epson Ink Level Cyan
+#   command: /usr/bin/curl -s -X GET http://epson.cbs-service.net/PRESENTATION/HTML/TOP/PRTINFO.HTML  | awk -F"'" '/Ink_C.PNG/ && $6+0 == $6 { printf "%.0f\n", $6 / 50 * 100 }'
+#   unit_of_measurement: '%'
+#   scan_interval: 120

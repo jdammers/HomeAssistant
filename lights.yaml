@@ -1,0 +1,39 @@
+
+#################################
+#
+# Living room
+#
+#################################
+# TV light
+- platform: mqtt
+  name: "tv_light"
+  state_topic: "stat/wz/switch1/POWER"
+  command_topic: "cmnd/wz/switch1/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  # availability_topic: "tele/wz/switch1/LWT"
+  # payload_available: "Online"
+  # payload_not_available: "Offline"
+  retain: true
+
+
+#################################
+#
+# Outdoor
+#
+#################################
+# Outdoor: Plantane
+- platform: mqtt
+  name: "plantane"
+  state_topic: "stat/outdoor/switch1/POWER"
+  command_topic: "cmnd/outdoor/switch1/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  # availability_topic: "tele/outdoor/switch1/LWT"
+  # payload_available: "Online"
+  # payload_not_available: "Offline"
+  retain: true

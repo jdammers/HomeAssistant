@@ -1,0 +1,151 @@
+###############################################
+#
+# Floor light -   HM_Schaltsteckdose
+#
+#  entity_id: switch.oeq0712614
+#
+###############################################
+
+
+# ToDos:
+# - in (1) implement time condition and weekend
+# - if (1) works remove (2), also in groups etc
+# - in (4) trigger on interval
+#   trigger:
+#     platform: time
+#     minutes: '/15'    # this is for repeated auto off during night
+#     seconds: 00
+#
+# - platform: numeric_state
+#   entity_id: sun.sun
+#   value_template: "{{ state.attributes.elevation }}"
+#   above: -5.0
+
+
+
+# ------------------------------------------------
+# 1. switch ON in the morning (when dark outside)
+# ------------------------------------------------
+- alias: 'Floor light ON early morning'
+  trigger:
+
+
+    # trigger on time
+    - platform: time
+      at: '06:00:00'
+
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: "-00:05:00"
+
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+
+  action:    
+    service: switch.turn_on
+    entity_id: switch.oeq0712614
+
+
+
+
+# ------------------------------------------------
+# 2. switch ON when dark outside (evening)
+# ------------------------------------------------
+- alias: 'Floor light ON when sunset'
+  trigger:
+
+
+    # trigger2: afternoon before sunset
+    - platform: sun
+      event: sunset
+      offset: '-00:05:00'
+
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+      - condition: time
+        before: '22:30:00'
+
+  action:    
+    service: switch.turn_on
+    entity_id: switch.oeq0712614
+
+
+
+# ------------------------------------------------
+# 3. switch OFF on sunrise
+# ------------------------------------------------
+- alias: 'Floor light OFF when sunrise'
+  trigger:
+
+    # trigger2: switch off just before sunrise
+    - platform: sun
+      event: sunrise
+      offset: '-00:10:00'
+
+  action:    
+    service: switch.turn_off
+    entity_id: switch.oeq0712614
+
+
+
+
+# ------------------------------------------------
+# 4. switch OFF during the night
+# ------------------------------------------------
+- alias: 'Floor light OFF during night'
+  trigger:
+
+    # trigger every 30 minutes
+    - platform: time
+      at: '23:45:00'
+    - platform: time
+      at: '01:00:00'
+    - platform: time
+      at: '01:30:00'
+    - platform: time
+      at: '02:00:00'
+    - platform: time
+      at: '02:30:00'
+    - platform: time
+      at: '03:00:00'
+    - platform: time
+      at: '03:30:00'
+    - platform: time
+      at: '04:00:00'
+
+  # dependencies
+  condition:
+    condition: and
+    conditions:
+      # make this dependent on: state => at home
+      - condition: state
+        entity_id: 'device_tracker.jurgens7'
+        state: 'home'
+
+      - condition: state
+        entity_id: 'device_tracker.petraa3'
+        state: 'home'
+
+      - condition: state
+        entity_id: 'device_tracker.iphonevncorinna'
+        state: 'home'
+
+      # - condition: state
+      #   entity_id: 'device_tracker.judithsiphone'
+      #   state: 'home'
+
+  action:    
+    service: switch.turn_off
+    entity_id: switch.oeq0712614
+

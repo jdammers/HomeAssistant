@@ -1,0 +1,106 @@
+###############################################
+#
+# Living Room - TV light (sonoff-S20)
+#
+#  entity_id: switch.tv_light
+#
+###############################################
+
+
+# ------------------------------------------------
+# 1. switch ON in the morning (when dark outside)
+# ------------------------------------------------
+- alias: 'TV light ON early morning'
+  trigger:
+
+    # trigger on time
+    - platform: time
+      at: '06:10:00'
+
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: "-00:05:00"
+
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/wz/switch1/POWER"
+        payload: "ON"
+
+
+
+
+# ------------------------------------------------
+# 2. switch ON when sunset
+# ------------------------------------------------
+- alias: 'TV light ON when sunset'
+  trigger:
+
+    - platform: sun
+      event: sunset
+      offset: '-00:05:00'
+
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+      - condition: time
+        before: '22:30:00'
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/wz/switch1/POWER"
+        payload: "ON"
+
+
+
+# ------------------------------------------------
+# 3. switch OFF on sunrise
+# ------------------------------------------------
+- alias: 'TV light OFF when sunrise'
+  trigger:
+
+    # trigger: switch off just before sunrise
+    - platform: sun
+      event: sunrise
+      offset: '-00:10:00'
+
+  action:    
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/wz/switch1/POWER"
+        payload: "OFF"
+
+
+
+# ------------------------------------------------
+# 4. switch OFF during the night
+# ------------------------------------------------
+- alias: 'TV light OFF during night'
+  trigger:
+
+    # trigger every 30 minutes
+    - platform: time
+      at: '23:45:00'
+
+    # - platform: time
+    #   at: '01:00:00'
+
+  action:    
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/wz/switch1/POWER"
+        payload: "OFF"
