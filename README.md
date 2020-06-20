@@ -1,5 +1,5 @@
 # HomeAssistantConfig
-Home automation using python3
+HomeAssistant - amazing home automation using python3
 
 This repo is under construction!
 For more information see: 
