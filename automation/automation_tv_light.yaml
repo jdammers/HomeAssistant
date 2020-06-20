@@ -104,3 +104,4 @@
       data:
         topic: "cmnd/wz/switch1/POWER"
         payload: "OFF"
+

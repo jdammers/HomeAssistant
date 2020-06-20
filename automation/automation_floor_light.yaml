@@ -1,8 +1,6 @@
 ###############################################
 #
-# Floor light -   HM_Schaltsteckdose
-#
-#  entity_id: switch.oeq0712614
+# Floor light 
 #
 ###############################################
 
@@ -27,12 +25,11 @@
 # 1. switch ON in the morning (when dark outside)
 # ------------------------------------------------
 - alias: 'Floor light ON early morning'
+  
   trigger:
-
-
     # trigger on time
     - platform: time
-      at: '06:00:00'
+      at: '06:05:00'
 
   condition:
     condition: and
@@ -50,8 +47,10 @@
           - fri
 
   action:    
-    service: switch.turn_on
-    entity_id: switch.oeq0712614
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/floor/switch1/POWER"
+        payload: "ON"
 
 
 
@@ -61,7 +60,6 @@
 # ------------------------------------------------
 - alias: 'Floor light ON when sunset'
   trigger:
-
 
     # trigger2: afternoon before sunset
     - platform: sun
@@ -77,8 +75,10 @@
         before: '22:30:00'
 
   action:    
-    service: switch.turn_on
-    entity_id: switch.oeq0712614
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/floor/switch1/POWER"
+        payload: "ON"
 
 
 
@@ -94,9 +94,10 @@
       offset: '-00:10:00'
 
   action:    
-    service: switch.turn_off
-    entity_id: switch.oeq0712614
-
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/floor/switch1/POWER"
+        payload: "OFF"
 
 
 
@@ -134,18 +135,52 @@
         state: 'home'
 
       - condition: state
-        entity_id: 'device_tracker.petraa3'
+        entity_id: 'device_tracker.petras7'
         state: 'home'
 
-      - condition: state
-        entity_id: 'device_tracker.iphonevncorinna'
-        state: 'home'
+      # - condition: state
+      #   entity_id: 'device_tracker.iphonevncorinna'
+      #   state: 'home'
 
       # - condition: state
       #   entity_id: 'device_tracker.judithsiphone'
       #   state: 'home'
 
   action:    
-    service: switch.turn_off
-    entity_id: switch.oeq0712614
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/floor/switch1/POWER"
+        payload: "OFF"
 
+
+        
+
+
+
+# ------------------------------------------------
+# 5. state of "wait for people to come home"
+# ------------------------------------------------
+# - alias: 'Wait for Jürgen'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+
+# - alias: 'Wait for Petra'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+
+# - alias: 'Wait for Corinna'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+
+# - alias: 'Wait for Judith'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+
+# - alias: 'Wait for Adrian'
+#   initial_state: true
+#   trigger:
+#     - platform: state

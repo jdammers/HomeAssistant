@@ -9,14 +9,33 @@
   name: "tv_light"
   state_topic: "stat/wz/switch1/POWER"
   command_topic: "cmnd/wz/switch1/POWER"
-  qos: 1
+  availability_topic: "tele/wz/switch1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
   payload_on: "ON"
   payload_off: "OFF"
+  qos: 1
   optimistic: false
-  # availability_topic: "tele/wz/switch1/LWT"
-  # payload_available: "Online"
-  # payload_not_available: "Offline"
-  retain: true
+  retain: false
+
+#################################
+#
+# Floor
+#
+#################################
+# Floor light
+- platform: mqtt
+  name: "floor_light"
+  state_topic: "stat/floor/switch1/POWER"
+  command_topic: "cmnd/floor/switch1/POWER"
+  availability_topic: "tele/floor/switch1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1
+  optimistic: false
+  retain: false
 
 
 #################################
@@ -29,11 +48,11 @@
   name: "plantane"
   state_topic: "stat/outdoor/switch1/POWER"
   command_topic: "cmnd/outdoor/switch1/POWER"
-  qos: 1
+  availability_topic: "tele/outdoor/switch1/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
   payload_on: "ON"
   payload_off: "OFF"
+  qos: 1
   optimistic: false
-  # availability_topic: "tele/outdoor/switch1/LWT"
-  # payload_available: "Online"
-  # payload_not_available: "Offline"
-  retain: true
+  retain: false

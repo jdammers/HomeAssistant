@@ -17,7 +17,7 @@ family_parents:
   name: 'Parents'
   entities:
     - device_tracker.jurgens7
-    - device_tracker.petraa3
+    - device_tracker.petras7
 
 # -------------------------------
 # Family Kids
@@ -26,8 +26,8 @@ family_kids:
   name: 'Kids'
   entities:
     - device_tracker.iphonevncorinna
-    - device_tracker.judithsiphone
-    - device_tracker.adrians7
+    - device_tracker.judithiphone
+    - device_tracker.adrians10e
 
 # -------------------------------
 # Family memebers
@@ -36,15 +36,10 @@ family:
   name: 'Family'
   entities:
     - device_tracker.jurgens7
-    - device_tracker.petraa3
+    - device_tracker.petras7
     - device_tracker.iphonevncorinna
-    - device_tracker.judithsiphone
-    - device_tracker.adrians7
-
-# friends:
-#   name: 'Friends'
-#   entities:
-#     - device_tracker.iphonevusdohmen
+    - device_tracker.judithiphone
+    - device_tracker.adrians10e
 
 
 
@@ -70,8 +65,9 @@ lights_home:
 lights_living:
   name: 'Lights'
   entities:
-    - switch.oeq0712614
+    # - switch.oeq0712614
     - light.tv_light
+    - light.floor_light
 
 # -------------------------------
 # Lights: outdoor
@@ -166,7 +162,8 @@ room_wz:
   name: 'Living room'
   entities:
     - light.tv_light
-    - switch.oeq0712614    
+    - light.floor_light
+    # - switch.oeq0712614    
     - sensor.wz_temperature
     - sensor.wz_humidity
     - sensor.wz_pressure
@@ -264,16 +261,13 @@ weather_sun:
 
 
 
-
-
-
 # ===============================================================
 #
 # GROUP HOST
 #
 # ===============================================================
-pi2:
-  name: 'Raspberry2'
+pi3:
+  name: 'Raspberry3'
   entities:
     # - sensor.cpu_temperature
     # - sensor.cpu_use
@@ -285,7 +279,6 @@ pi2:
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.speedtest_ping
-
 
 
 # ===============================================================
@@ -344,83 +337,83 @@ auto_light_plantane:
 # Tabs
 #
 #################################################
-default_view:
-  name: 'Home'
-  view: yes
-  icon: mdi:home 
-  entities:
-    - group.family
-    - group.room_wz
-    - group.outdoor
+# default_view:
+#   name: 'Home'
+#   #view: yes
+#   icon: mdi:home 
+#   entities:
+#     - group.family
+#     # - group.room_wz
+#     # - group.outdoor
    
 
-People: 
-  name: People
-  view: yes
-  icon: mdi:account-multiple
-  entities:
-    - group.family_kids
-    - group.family_parents
-    # - group.friends
+# People: 
+#   name: People
+#   #view: yes
+#   icon: mdi:account-multiple
+#   entities:
+#     - group.family_kids
+#     - group.family_parents
+#     # - group.friends
 
-Kids:
-  name: Kids
-  view: yes
-  entities:
-    - group.room_kids1
-    - group.room_kids3
-    - group.room_kids2
+# Kids:
+#   name: Kids
+#   view: yes
+#   entities:
+#     - group.room_kids1
+#     - group.room_kids3
+#     - group.room_kids2
     
 
-Weather:
-  name: Weather
-  view: yes
-  entities:
-    - group.meteo 
-    - group.weather_sun
-    - group.sensor_outdoor
+# Weather:
+#   name: Weather
+#   #view: yes
+#   entities:
+#     # - group.meteo 
+#     - group.weather_sun
+#     # - group.sensor_outdoor
 
 
 
-Heating:
-  name: Heating
-  view: yes
-  entities:
-    - group.sensor_heating
+# Heating:
+#   name: Heating
+#   view: yes
+#   entities:
+#     - group.sensor_heating
     
 
-Outdoor: 
-  name: Outdoor
-  view: yes
-  entities:
-    - group.outdoor
+# Outdoor: 
+#   name: Outdoor
+#   view: yes
+#   entities:
+#     - group.outdoor
 
 
-Media: 
-  name: Media
-  view: yes
-  entities:
-    - device_tracker.epson69ae8f
-    - device_tracker.firetvkindle1087de6fa
+# Media: 
+#   name: Media
+#   #view: yes
+#   entities:
+#     - device_tracker.epson69ae8f
+#     - device_tracker.firetvkindle1087de6fa
 
 
-automation:
-  name: Automation
-  view: yes
-  entities:
-    - group.auto_light_floor
-    - group.auto_light_tv
-    - group.auto_light_plantane
+# automation:
+#   name: Automation
+#   view: yes
+#   entities:
+#     - group.auto_light_floor
+#     - group.auto_light_tv
+#     - group.auto_light_plantane
 
 
-system:
-  name: 'System'
-  view: yes
-  icon: mdi:server
-  entities:
-    - group.pi2
-    # - group.pihole
-    # - group.devices
-    # - group.pings
-    # - group.docker_container
+# system:
+#   name: 'System'
+#   #view: yes
+#   icon: mdi:server
+#   entities:
+#     - group.pi3
+#     # - group.pihole
+#     # - group.devices
+#     # - group.pings
+#     # - group.docker_container
 
