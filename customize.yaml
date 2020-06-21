@@ -14,7 +14,7 @@ device_tracker.adrians10e:
   entity_picture: /local/adrian.jpg
   friendly_name: Adrian
 device_tracker.robotic_mower:
-  entity_picture: /local/robi.jpg
+  entity_picture: /local/robi3.jpg
   friendly_name: Robi
   
 device_tracker.epson69ae8f:
