@@ -1,0 +1,19 @@
+# ===============================================================
+#
+# GROUP HOST
+#
+# ===============================================================
+pi3:
+  name: 'Raspberry3'
+  entities:
+    # - sensor.cpu_temperature
+    # - sensor.cpu_use
+    # - sensor.disk_used_
+    # - sensor.last_boot
+    # - sensor.ram_free
+    # - sensor.sent_eth0
+    # - sensor.received_eth0
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+

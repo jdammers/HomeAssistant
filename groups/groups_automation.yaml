@@ -1,0 +1,42 @@
+# ===============================================================
+#
+# GROUP AUTOMATION
+#
+# ===============================================================
+
+# -------------------------------
+# Floor light
+# -------------------------------
+auto_light_floor:
+  name: 'Floor Light' 
+  entities:
+    - automation.floor_light_on_early_morning
+    - automation.floor_light_on_when_sunset
+    - automation.floor_light_off_when_sunrise
+    - automation.floor_light_off_during_night
+
+
+# -------------------------------
+# TV light
+# -------------------------------
+auto_light_tv:
+  name: 'TV Light' 
+  entities:
+    - automation.tv_light_on_early_morning
+    - automation.tv_light_on_when_sunset
+    - automation.tv_light_off_when_sunrise
+    - automation.tv_light_off_during_night
+
+
+# -------------------------------
+# Plantane light
+# -------------------------------
+auto_light_plantane:
+  name: 'Plantane Light' 
+  entities:
+    - automation.plantane_light_on_early_morning
+    - automation.plantane_light_on_when_sunset
+    - automation.plantane_light_off_when_sunrise
+    - automation.plantane_light_off_during_night
+
+

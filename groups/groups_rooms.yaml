@@ -1,0 +1,53 @@
+# ===============================================================
+#
+# GROUP ROOMS
+#
+# ===============================================================
+
+# -------------------------------
+# Room:  living room
+# -------------------------------
+room_wz:
+  name: 'Living room'
+  entities:
+    - light.tv_light
+    - light.floor_light
+    - sensor.wz_temperature
+    - sensor.wz_humidity
+    - sensor.wz_pressure
+
+
+# -------------------------------
+# Sensors: Kids1 Room
+# -------------------------------
+room_kids1:
+  name: 'Kids1 room'
+  entities:
+    - device_tracker.judithsiphone
+    - sensor.kids1_temperature
+    - sensor.kids1_pressure
+
+
+# -------------------------------
+# Sensors: Kids2 Room
+# -------------------------------
+room_kids2:
+  name: 'Kids2 room'
+  entities:
+    - device_tracker.adrians7
+    - sensor.kids2_temperature
+    - sensor.kids2_pressure
+
+
+# -------------------------------
+# Sensors: Kids3 Room
+# -------------------------------
+room_kids3:
+  name: 'Kids3 room'
+  entities:
+    - device_tracker.corinnaiphone
+    - sensor.kids3_temperature
+    - sensor.kids3_pressure
+
+
+

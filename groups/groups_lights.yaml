@@ -1,0 +1,32 @@
+# ===============================================================
+#
+# GROUP LIGHTS
+#
+# ===============================================================
+
+# -------------------------------
+# Lights: at home
+# -------------------------------
+lights_home:
+  name: 'Lights Home'
+  entities:
+    - light.tv_light
+    - light.floor_light
+    - light.plantane
+
+# -------------------------------
+# Lights: living room
+# -------------------------------
+lights_living:
+  name: 'Lights'
+  entities:
+    - light.tv_light
+    - light.floor_light
+
+# -------------------------------
+# Lights: outdoor
+# -------------------------------
+lights_outdoor:
+  name: 'Outdoor Lights'
+  entities:
+    - light.plantane

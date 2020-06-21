@@ -1,0 +1,85 @@
+#################################################
+#
+# Tabs
+#
+#################################################
+# default_view:
+#   name: 'Home'
+#   #view: yes
+#   icon: mdi:home 
+#   entities:
+#     - group.family
+#     # - group.room_wz
+#     # - group.outdoor
+   
+
+# People: 
+#   name: People
+#   #view: yes
+#   icon: mdi:account-multiple
+#   entities:
+#     - group.family_kids
+#     - group.family_parents
+#     # - group.friends
+
+# Kids:
+#   name: Kids
+#   view: yes
+#   entities:
+#     - group.room_kids1
+#     - group.room_kids3
+#     - group.room_kids2
+    
+
+# Weather:
+#   name: Weather
+#   #view: yes
+#   entities:
+#     # - group.meteo 
+#     - group.weather_sun
+#     # - group.sensor_outdoor
+
+
+
+# Heating:
+#   name: Heating
+#   view: yes
+#   entities:
+#     - group.sensor_heating
+    
+
+# Outdoor: 
+#   name: Outdoor
+#   view: yes
+#   entities:
+#     - group.outdoor
+
+
+# Media: 
+#   name: Media
+#   #view: yes
+#   entities:
+#     - device_tracker.epson69ae8f
+#     - device_tracker.firetvkindle1087de6fa
+
+
+# automation:
+#   name: Automation
+#   view: yes
+#   entities:
+#     - group.auto_light_floor
+#     - group.auto_light_tv
+#     - group.auto_light_plantane
+
+
+# system:
+#   name: 'System'
+#   #view: yes
+#   icon: mdi:server
+#   entities:
+#     - group.pi3
+#     # - group.pihole
+#     # - group.devices
+#     # - group.pings
+#     # - group.docker_container
+

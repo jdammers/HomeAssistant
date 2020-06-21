@@ -1,0 +1,68 @@
+# ===============================================================
+#
+# GROUP SENSORS
+#
+# ===============================================================
+
+# -------------------------------
+# Sensors: Heating
+# -------------------------------
+sensor_heating:
+  name: 'Heating'
+  entities:
+    - sensor.heizung_vl
+    - sensor.heizung_rl
+    - sensor.heizung_ww
+
+
+# -------------------------------
+# Sensors: Living Room
+# -------------------------------
+sensor_room_wz:
+  name: 'Living room sensors'
+  entities:
+    - sensor.wz_temperature
+    - sensor.wz_humidity
+    - sensor.wz_pressure
+
+
+# -------------------------------
+# Sensors: Kids1 Room
+# -------------------------------
+sensor_room_kids1:
+  name: 'Kids1 room sensors'
+  entities:
+    - sensor.kids1_temperature
+    - sensor.kids1_pressure
+
+# -------------------------------
+# Sensors: Kids2 Room
+# -------------------------------
+sensor_room_kids2:
+  name: 'Kids2 room sensors'
+  entities:
+    - sensor.kids2_temperature
+    - sensor.kids2_pressure
+
+# -------------------------------
+# Sensors: Kids3 Room
+# -------------------------------
+sensor_room_kids3:
+  name: 'Kids3 room sensors'
+  entities:
+    - sensor.kids3_temperature
+    - sensor.kids3_pressure
+
+
+
+# -------------------------------
+# Sensors: Outdoor
+# -------------------------------
+sensor_outdoor:
+  name: 'Outdoor sensors'
+  entities:
+    - sensor.local_temperature
+    - sensor.local_humidity
+    - sensor.local_pressure
+
+

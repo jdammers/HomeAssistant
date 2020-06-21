@@ -1,0 +1,17 @@
+# ===============================================================
+#
+# GROUP Outdoor
+#
+# ===============================================================
+
+# -------------------------------
+# Local Weather from Outdoor
+# -------------------------------
+outdoor:
+  name: 'Outdoor'
+  entities:
+    - light.plantane
+    - sensor.local_temperature
+    - sensor.local_humidity
+    - sensor.local_pressure
+

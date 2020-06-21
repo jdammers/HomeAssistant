@@ -1,9 +1,3 @@
-#################################################
-#
-#  GROUP Definitions
-#
-#################################################
-
 # ===============================================================
 #
 # GROUP PEOPLE
@@ -25,7 +19,7 @@ family_parents:
 family_kids:
   name: 'Kids'
   entities:
-    - device_tracker.iphonevncorinna
+    - device_tracker.corinnaiphone
     - device_tracker.judithiphone
     - device_tracker.adrians10e
 
@@ -37,7 +31,7 @@ family:
   entities:
     - device_tracker.jurgens7
     - device_tracker.petras7
-    - device_tracker.iphonevncorinna
+    - device_tracker.corinnaiphone
     - device_tracker.judithiphone
     - device_tracker.adrians10e
 
