@@ -71,7 +71,8 @@
 #==================================
 # clouds and rain
 #==================================
-- platform: yr
+# - platform: yr
+# - platform: weather_data
 
 
 

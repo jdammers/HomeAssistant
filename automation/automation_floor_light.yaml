@@ -29,7 +29,7 @@
   trigger:
     # trigger on time
     - platform: time
-      at: '06:05:00'
+      at: '06:00:00'
 
   condition:
     condition: and
@@ -110,6 +110,7 @@
     # trigger every 30 minutes
     - platform: time
       at: '23:45:00'
+      # at: '15:02:00'
     - platform: time
       at: '01:00:00'
     - platform: time
@@ -129,22 +130,87 @@
   condition:
     condition: and
     conditions:
-      # make this dependent on: state => at home
-      - condition: state
-        entity_id: 'device_tracker.jurgens7'
-        state: 'home'
 
-      - condition: state
-        entity_id: 'device_tracker.petras7'
-        state: 'home'
+      # ----------------------------------
+      # Jurgen
+      # floor light turns off on conditions
+      # - at home  OR
+      # - not home AND do not wait for jurgen
+      # ----------------------------------
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.jurgen
+            state: 'home'
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: person.jurgen
+                state: 'not_home'
+              - condition: state
+                entity_id: input_boolean.wait_for_jurgen
+                state: 'off'
 
-      # - condition: state
-      #   entity_id: 'device_tracker.iphonevncorinna'
-      #   state: 'home'
+      # ----------------------------------
+      # Petra
+      # floor light turns off on conditions
+      # - at home  OR
+      # - not home AND do not wait for petra
+      # ----------------------------------
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.petra
+            state: 'home'
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: person.petra
+                state: 'not_home'
+              - condition: state
+                entity_id: input_boolean.wait_for_petra
+                state: 'off'
 
-      # - condition: state
-      #   entity_id: 'device_tracker.judithsiphone'
-      #   state: 'home'
+      # ----------------------------------
+      # Judith
+      # floor light turns off on conditions
+      # - at home  OR
+      # - not home AND do not wait for judith
+      # ----------------------------------
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.judith
+            state: 'home'
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: person.judith
+                state: 'not_home'
+              - condition: state
+                entity_id: input_boolean.wait_for_judith
+                state: 'off'
+
+      # ----------------------------------
+      # Adrian
+      # floor light turns off on conditions
+      # - at home  OR
+      # - not home AND do not wait for judith
+      # ----------------------------------
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.adrian
+            state: 'home'
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: person.adrian
+                state: 'not_home'
+              - condition: state
+                entity_id: input_boolean.wait_for_adrian
+                state: 'off'
+
 
   action:    
     - service: mqtt.publish
@@ -156,19 +222,15 @@
         
 
 
-
 # ------------------------------------------------
 # 5. state of "wait for people to come home"
 # ------------------------------------------------
-# - alias: 'Wait for Jürgen'
-#   initial_state: true
-#   trigger:
-#     - platform: state
 
-# - alias: 'Wait for Petra'
-#   initial_state: true
-#   trigger:
-#     - platform: state
+  
+  # initial_state: true
+  # trigger:
+  #   - platform: state
+
 
 # - alias: 'Wait for Corinna'
 #   initial_state: true
