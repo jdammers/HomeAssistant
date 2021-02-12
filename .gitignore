@@ -8,4 +8,9 @@
 /www/
 /backup/
 /people
-/groups/groups_people.yaml
+/person.yaml
+/input_boolean.yaml
+/deps/
+/tts/
+/packages/outdoor_light_example2.yaml
+/packages/outdoor_light_example.yaml

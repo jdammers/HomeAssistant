@@ -84,12 +84,12 @@ mqtt:
   keepalive: 60
   username: !secret mqtt_user
   password: !secret mqtt_password
-  birth_message:
-    topic: 'hass/status'
-    payload: 'online'
-  will_message:
-    topic: 'hass/status'
-    payload: 'offline'
+#   birth_message:
+#     topic: 'hass/status'
+#     payload: 'online'
+#   will_message:
+#     topic: 'hass/status'
+#     payload: 'offline'
 
 
 ########################################################
@@ -177,7 +177,6 @@ weather:
 #     url: !secret influx_url
 
 
-
 ########################################################
 #
 # device tracker
@@ -230,9 +229,10 @@ speedtestdotnet:
 ########################################################
 sensor: !include sensors.yaml
 light: !include lights.yaml
-# group: !include groups.yaml
 group: !include_dir_merge_list groups
 automation: !include_dir_merge_list automation
+input_boolean: !include input_boolean.yaml
+person: !include person.yaml
 
 #script: !include scripts.yaml
 #script: !include_dir_named scripts
